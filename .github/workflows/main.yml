@@ -1,0 +1,40 @@
+name: 'Build and push to Lightsail'
+on:
+  push:
+    branches:
+      - main
+jobs:
+  BuildAndPushImageTolightSale:
+    name: 'Build and Push to LightSale'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build
+        uses: docker/build-push-action@v4.0.0
+        with:
+          context: .
+          push: false
+          tags: ${{ steps.login-ecr.outputs.registry }}/shams-front:v1
+
+      - uses: fdiesel/github-action-deploy-aws-lightsail-container@v3.0.1
+        with:
+          image-name: shams
+          image: ${{ steps.login-ecr.outputs.registry }}/shams-front:v1
+          aws-region: ${{ secrets.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-lightsail-service: shams-front
+          aws-lightsail-clear-images: false
