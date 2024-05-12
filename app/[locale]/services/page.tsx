@@ -7,6 +7,7 @@ import { getService } from './utils';
 import ServiceItem from '@/components/ServiceItem';
 import { LocaleType } from '@/i18n/translations';
 import { Text } from '@/components/common';
+import { Metadata } from 'next';
 
 const Services = async () => {
   const { t, locale } = getI18n();
@@ -23,10 +24,9 @@ const Services = async () => {
           <Text
             sz='40'
             as='h1'
-            className='mb-2 text-center font-extrabold md:text-start'
+            className='mb-2 text-center font-extrabold text-blue md:text-start'
           >
-            {t('our_range_of_dental')}
-            <span className='text-blue'> {t('care_services')}</span>
+            {t('care_services')}
           </Text>
           <Text
             sz='16'
@@ -52,6 +52,9 @@ export const generateMetadata = async ({
   params: { locale },
 }: {
   params: { locale: LocaleType };
-}) => {
-  return getPageMetadata(TPage.Services, locale);
+}): Promise<Metadata> => {
+  return {
+    ...getPageMetadata(TPage.Services, locale),
+    robots: { index: false },
+  };
 };
