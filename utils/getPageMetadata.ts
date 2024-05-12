@@ -6,7 +6,8 @@ import { LocaleType } from '@/i18n/translations';
 
 const defaultMeta: Metadata = {
   title: 'SHAMS',
-  description: 'SHAMS Dental Clinic.',
+  description:
+    'Ձեր գեղեցիկ և առողջ ժպիտը մեր առաջնահերթությունն է, և մենք ձգտում ենք որակյալ ստոմատոլոգիական ծառայությունները հասանելի դարձնելու բոլորիդ՝  մեր թիմում ընդգրկելով ոլորտի առաջատար մասնագետներին, ներդնելով նորարարական տեխնոլոգիականերով հագեցած ստոմատոլոգիական կաբինետներ և ստեղծել ով հյուրընկալ և հանգստացնող միջավայր  մեր բոլոր բուժառուների համար:',
   keywords: 'SHAMS, Dental, Clinic, Dentist, Dentistry, Teeth, Tooth',
 };
 
