@@ -10,6 +10,8 @@ const defaultMeta: Metadata = {
   keywords: 'SHAMS, Dental, Clinic, Dentist, Dentistry, Teeth, Tooth',
 };
 
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+
 export const getPageMetadata = async (
   page: TPage,
   locale: LocaleType
@@ -28,11 +30,35 @@ export const getPageMetadata = async (
         ? { index: false }
         : undefined;
 
+    const title = metaData[`title_${locale}`] || defaultMeta.title || '';
+    const description =
+      metaData[`description_${locale}`] || defaultMeta.description || '';
+
     return {
-      title: metaData[`title_${locale}`] || defaultMeta.title,
+      title,
       description: metaData[`description_${locale}`] || defaultMeta.description,
       keywords: metaData.keywords || defaultMeta.keywords,
       robots,
+      icons: `${baseUrl}/images/logo.png`,
+      openGraph: {
+        type: 'website',
+        url: `${baseUrl}`,
+        title,
+        description,
+        siteName: 'SHAMS',
+        images: [
+          {
+            url: `${baseUrl}/images/logo.png`,
+          },
+        ],
+      },
+      twitter: {
+        title,
+        site: `${baseUrl}`,
+        description,
+        images: `${baseUrl}/images/logo.png`,
+        card: 'summary_large_image',
+      },
     };
   } catch (err) {
     return defaultMeta;
