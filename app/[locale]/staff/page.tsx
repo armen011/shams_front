@@ -53,5 +53,6 @@ export const generateMetadata = async ({
 }: {
   params: { locale: LocaleType };
 }) => {
-  return { ...getPageMetadata(TPage.Staff, locale), robots: { index: false } };
+  const metadata = await getPageMetadata(TPage.Staff, locale);
+  return { ...metadata, robots: { index: false } };
 };

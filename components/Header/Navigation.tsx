@@ -14,7 +14,7 @@ const Navigation = () => {
 
   const isLinkActive = useCallback(
     (path: string) => {
-      const x = `/${segment}` || '/';
+      const x = segment ? `/${segment}` : '/';
       return x === path;
     },
     [segment]

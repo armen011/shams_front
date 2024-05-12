@@ -52,5 +52,6 @@ export const generateMetadata = async ({
 }: {
   params: { locale: LocaleType };
 }) => {
-  return { ...getPageMetadata(TPage.Blogs, locale), robots: { index: false } };
+  const metadata = await getPageMetadata(TPage.Blogs, locale);
+  return { ...metadata, robots: { index: false } };
 };
