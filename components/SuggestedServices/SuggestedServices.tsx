@@ -10,9 +10,8 @@ const SuggestedServices = async () => {
   return (
     <section className='py-8 lg:py-20'>
       <div className='mx-auto flex max-w-1440 flex-col items-center p-4 lg:p-8'>
-        <Text as='h2' sz='40' className='text-center font-extrabold'>
-          {t('suggested')}
-          <span className='text-blue'> {t('services')}</span>
+        <Text as='h2' sz='40' className='text-center font-extrabold text-blue'>
+          {t('services')}
         </Text>
         <Text as='p' sz='16' className='mb-8 max-w-[676px] text-center'>
           {t('suggested_service_desc')}

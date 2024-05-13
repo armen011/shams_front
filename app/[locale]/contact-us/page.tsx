@@ -20,14 +20,6 @@ const ContactUs = () => {
               scrolling='no'
               className='h-[384px] w-full lg:h-full lg:w-[768px]'
             ></iframe>
-            {/* <NextImage
-            src='/images/fake_map.jpg'
-            width={768}
-            height={456}
-            alt='Google Map'
-            priority
-            className='lg:w-168 h-[480px] w-full object-cover lg:h-auto'
-          /> */}
           </div>
         </div>
       </div>

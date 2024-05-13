@@ -7,20 +7,7 @@ const SecondSection = () => {
 
   return (
     <section className='py-16'>
-      <div>
-        <Text sz='48' as='h6' className='text-center font-bold'>
-          <span className='text-blue'>{t('shams')} </span>
-          {t('new_home_title')}
-        </Text>
-        <Text
-          sz='20'
-          as='h6'
-          className='text-center font-bold text-yellow-dark-100'
-        >
-          {t('slogon')}
-        </Text>
-      </div>
-      <div className='flex flex-col items-center gap-2 p-4 lg:flex-row lg:gap-8 lg:p-8'>
+      <div className='flex flex-col-reverse items-center gap-2 p-4 lg:flex-row lg:gap-8 lg:p-8'>
         <div className='z-20 flex h-full flex-grow flex-col'>
           <Text sz='28' as='h2' className='mb-4 font-extrabold'>
             {t('new_welcome')}

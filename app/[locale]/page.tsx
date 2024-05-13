@@ -7,6 +7,9 @@ import Main from '@/components/common/Main';
 import { getPageMetadata } from '@/utils/getPageMetadata';
 import FirstSection from './Components/FirstSection';
 import SecondSection from './Components/SecondSection';
+import WhyChooseUs from './Components/WhyChooseUs';
+import ContactUsSection from './Components/ContactUsSection';
+import SuggestedServices from '@/components/SuggestedServices';
 
 const Home = () => {
   return (
@@ -15,6 +18,9 @@ const Home = () => {
         <FirstSection />
         <div className='mx-auto max-w-1440'>
           <SecondSection />
+          <WhyChooseUs />
+          <ContactUsSection />
+          <SuggestedServices />
         </div>
       </div>
     </Main>
