@@ -6,6 +6,8 @@ import '@/styles/globals.css';
 import { I18nProvider } from '@/i18n/client';
 import { languages } from '@/i18n/translations';
 
+import { GoogleAnalytics } from '@next/third-parties/google';
+
 const notoSans = Noto_Sans_Armenian({
   subsets: ['latin'],
   variable: '--noto-font',
@@ -31,6 +33,7 @@ export default function RootLayout({
           </I18nProvider>
         </div>
       </body>
+      <GoogleAnalytics gaId='G-7LDEXXHTMD' />
     </html>
   );
 }
